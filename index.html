@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniview Anbohui | welcome</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .navigator {
+            position: absolute;
+            right: 12rem;
+            top: 20.5rem;
+            z-index: 9;
+        }
+        
+        span.icon-circle {
+            width: 0.625rem;
+            height: 0.625rem;
+            background: rgba(238, 106, 10, 1);
+            box-shadow: 0px 0.1875rem 0.375rem rgba(0, 0, 0, 0.16);
+            border-radius: 50%;
+            z-index: 3;
+            display: none;
+        }
+        
+        .navigator li span:nth-child(1) {
+            width: 3.5rem;
+            font-size: 0.875rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            line-height: 1.5rem;
+            color: rgba(255, 255, 255, 1);
+            opacity: 1;
+            margin-right: 1.0625rem;
+        }
+        
+        .navigator ul li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .selected {
+            color: #EE6A0A !important;
+        }
+        
+        .active {
+            display: block !important;
+        }
+        
+        .navigator ul {
+            height: 20rem;
+            padding: 1.125rem 0;
+        }
+        
+        .navigator .axis {
+            width: 0.375rem;
+            height: 20rem;
+            background: rgba(156, 156, 156, 1);
+            opacity: 1;
+            border-radius: 0.3125rem;
+            margin-left: -0.5rem;
+        }
+        
+        #showDisplay {
+            position: relative;
+            width: 100%;
+            height: 31.25rem;
+            /* overflow: hidden; */
+        }
+        
+        .areas-arrange {
+            width: 70.4569rem;
+            height: 29.125rem;
+            background: url('./images/display.png') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        
+        .left-arrow {
+            top: -6.25rem;
+            left: 9rem;
+            overflow: hidden;
+            width: 29.3125rem;
+            height: 26.875rem;
+            position: absolute;
+        }
+        
+        .left-arrow .left {
+            width: 49.125rem;
+            height: 46.25rem;
+            background: url('./images/right.png')no-repeat -23rem -14.25rem;
+            background-size: 100% 100%;
+        }
+        
+        .right-arrow {
+            overflow: hidden;
+            width: 29.3125rem;
+            height: 26.875rem;
+            position: absolute;
+            top: -6.25rem;
+            right: 5.0625rem;
+        }
+        
+        .right-arrow .right {
+            width: 49.125rem;
+            height: 46.25rem;
+            background: url('./images/left.png')no-repeat -1.4375rem -13.75rem;
+            background-size: 100% 100%;
+        }
+        
+        .show-hint {
+            width: 59.625rem;
+            height: 22.14rem;
+            background: url('./images/annotation.png') no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: -1.5rem;
+            top: -2.5rem;
+        }
+        
+        .entrance {
+            position: absolute;
+            left: 36.875rem;
+            top: 18.6875rem;
+        }
+        
+        .entrance .arrow {
+            width: 0.8612rem;
+            height: 2.4025rem;
+            background: url('./images/entrance.png') no-repeat;
+            background-size: 100% 100%;
+            margin-bottom: 0.625rem;
+        }
+        
+        .entrance span {
+            font-size: 1rem;
+            font-family: Source Han Sans CN;
+            font-weight: bold;
+            color: rgba(238, 106, 10, 1);
+        }
+        
+        #aboutShow {
+            position: relative;
+        }
+        
+        .l-decoration {
+            width: 10.0625rem;
+            height: 17.75rem;
+            background: url('./images/left-deco.png') no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 22.3125rem;
+            left: 2.875rem;
+        }
+        
+        .r-decoration {
+            width: 13.375rem;
+            height: 23.125rem;
+            background: url('./images/right-deco.png') no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 30.125rem;
+            right: 10.375rem;
+        }
+        
+        footer .content {
+            width: 100%;
+        }
+        
+        footer .content span {
+            margin-left: 46.125rem;
+        }
+        
+        .about-business .content .left {
+            width: 55.0625rem;
+            height: 34.0625rem;
+            background: url('./images/business-left.png') no-repeat -84px 0px;
+            background-size: 100% 100%;
+            float: left;
+        }
+        
+        .about-business .content .right {
+            width: 51.0625rem;
+            height: 34.0625rem;
+            background: url('./images/business-right.png') no-repeat 133px 0px;
+            background-size: 100% 100%;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 导航栏 -->
+        <header class="d-flex jc-center ai-center">
+            <div class="d-flex ai-center ">
+                <div id="branding"></div>
+                <nav>
+                    <ul class='d-flex'>
+                        <li><a href="#">参会介绍</a></li>
+                        <li><a href="#">展台看点</a></li>
+                        <li><a href="#">资料下载</a></li>
+                        <li><a href="#">参会指引</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                        <li><a href="#" class="d-flex ai-center "><span>返回官网</span><span class="icon ml-2"></span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- 主题 -->
+        <section class="d-flex jc-center flex-column ai-center">
+            <div class="web-earth d-flex jc-center">
+                <div class="topic d-flex flex-column ai-center jc-center">
+                    <h1>守护安全美好生活</h1>
+                    <span>深圳会展中心</span>
+                    <span>2019年10月28日——31日</span>
+                    <span>展位号：1B01</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 展区布局 -->
+        <section id="showDisplay" class="d-flex flex-column jc-center ai-center">
+            <div class="d-flex">
+                <div class="left-arrow">
+                    <div class="left"></div>
+                </div>
+                <div class="areas-arrange">
+                    <div class="show-hint">
+                        <div class="hotSpot font-end">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot data-center">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot back-end">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot public-safety">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot city-traffic">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot smart-park">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot vaas">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot smart-traffic">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot game">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot safe-OM">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot reception">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot oversea-show">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot business">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot com-security">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                        <div class="hotSpot cooperation">
+                            <div class="dot"></div>
+                            <div class="ripple1"></div>
+                            <div class="ripple2"></div>
+                            <div class="ripple3"></div>
+                        </div>
+                    </div>
+                    <div class="entrance d-flex flex-column ai-center jc-between ">
+                        <div class="arrow"></div><span>入口</span>
+                    </div>
+                </div>
+                <div class="right-arrow">
+                    <div class="right"></div>
+                </div>
+            </div>
+
+            <aside class="navigator d-flex ai-center">
+                <ul class="d-flex flex-column jc-around">
+                    <a href="#aboutShow">
+                        <li><span class="selected">展会信息</span><span class="icon-circle active"></span></li>
+                    </a>
+                    <a href="#aboutBusiness">
+                        <li><span>展台看点</span><span class="icon-circle "></span></li>
+                    </a>
+                    <a href="#downloadFile">
+                        <li><span>资料下载</span><span class="icon-circle"></span></li>
+                    </a>
+                    <a href="#guide">
+                        <li><span>参会指引</span><span class="icon-circle"></span></li>
+                    </a>
+                    <a href="#partner">
+                        <li><span>合作伙伴</span><span class="icon-circle"></span></li>
+                    </a>
+                    <a href="#">
+                        <li><span>返回官网</span><span class="icon-circle"></span></li>
+                    </a>
+                </ul>
+                <div class="axis"></div>
+            </aside>
+        </section>
+
+        <!-- 展会信息 -->
+        <section id="aboutShow" class=" about-show d-flex flex-column jc-center ai-center">
+            <div class="title"></div>
+            <div class="introduction d-flex flex-column ">
+                <p class="label ">宇视2019安博会揭秘：AIoT场景化11大方案</p>
+                <p class="details">2019中国国际社会公共安全博览会（下称安博会）10月28～31日在深圳会展中心举办，宇视科技（uniview）携『守护安全美好生活』AIoT战略成果在1号展馆1B01以全场最大展位迎宾：
+                    <br><br> 以严谨逻辑呈现“四横三纵”的『全景数智物联』AIoT顶层架构级创新，实现全服务、全智能、全感知、全连接、全融合；重点展示在终端场景硬件、前台场景业务、中台战略的最新突破，涵盖11组AIoT解决方案，行业、渠道、海外三大市场系列产品、合作与服务。
+                </p>
+                <span class="more self-center "></span>
+            </div>
+            <aside class="l-decoration"></aside>
+            <aside class="r-decoration"></aside>
+        </section>
+
+        <!-- 最丰富业务展示 -->
+        <section id="aboutBusiness" class="about-business">
+            <div class="title"></div>
+            <div class="content">
+                <div class="left">
+                    <!-- <div class="left-inner"></div> -->
+                </div>
+                <div class="center">
+                    <div class="tabBar d-flex ai-center jc-between ">
+                        <span>智慧城市</span>
+                        <span>公共安全</span>
+                        <span>综合安防</span>
+                        <span class="triangle"></span>
+                    </div>
+                    <div class="activeTab ">
+                        <div class="solution">
+                            <label>商业综合体解决方案</label>
+                            <p>精准画像，精准营销，让购物中心运营方详细了解客流的动线、年龄、性别与购物习惯</p>
+                        </div>
+                        <div class="solution">
+                            <label>智慧园区管理解决方案</label>
+                            <p>让您运营管理更精细，让您办公更便捷、安全、舒适。</p>
+                        </div>
+                        <div class="solution">
+                            <label>城市交通管理联合解决方案</label>
+                            <p>交通运行能力全域感知、重点车辆的闭环管理。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <!-- <div class="right-inner"></div> -->
+                </div>
+            </div>
+        </section>
+        <!-- 最强中台能力 -->
+        <section class="about-backup d-flex flex-column jc-center ai-center">
+            <div class="title"></div>
+            <div class="content d-flex ai-center">
+                <div class="t-decoration"></div>
+                <p>IMOS+阿里云。首次发布数据中台、业务中台双中台战略， 包含IoT引擎、视频云引擎、视觉智能引擎和数据智能引擎。 宇视作为阿里云最高级别合作伙伴——飞天联盟战略合作伙伴， 深度集成阿里公共云，打造AIoT最强中台，强化软件服务能力， 解决交付速度与研发效率、用户差异化需求与版本质量控制之间的矛盾， 打造AIoT解决方案的强大竞争力。
+                </p>
+                <div class="b-decoration"></div>
+            </div>
+        </section>
+
+        <!-- 九山四关硬件产品 -->
+        <section class="about-hardware ">
+            <div class="d-flex flex-column jc-center ai-center">
+                <div class="title"></div>
+                <div class="content d-flex ai-center jc-center">
+                    <div class="camera"></div>
+                    <div class="camera"></div>
+                    <div class="camera"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 资料下载 -->
+        <section id="downloadFile" class="d-flex  jc-center ai-center">
+            <div class="file-download d-flex flex-column jc-center ai-center">
+                <div class="title"></div>
+                <div class="content d-flex ai-center jc-between flex-wrap ">
+                    <div class="single-file d-flex ai-center flex-between" v-for="(i,index) in 14" :key="index">
+                        <div class="d-flex ai-center"><span class="icon-file"></span><span class="file-name">【产品折页-智能交通球】智能交通球折页V2.0</span></div>
+                        <span class="icon-download"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 展会视频 -->
+        <section id="guide" class="show-video d-flex flex-column jc-center ai-center">
+            <div class="title"></div>
+            <div class="content d-flex flex-column ai-center ">
+                <div class="upper-left-corner d-flex flex-column ai-center jc-around"><span>一号展厅</span><span>北</span><span class="icon-compass"></span></div>
+                <div class="position d-flex flex-column ai-center"><span class="d-flex ai-center jc-center">展台位置</span><span class="b-line"></span>
+                </div>
+                <div class="surround d-flex ai-center ">
+                    <div>
+                        <div class="t-sign d-flex ai-center jc-between ">
+                            <div class="d-flex ai-center jc-center"><span>往2、3、4馆 </span><span class="icon-left"></span></div>
+                            <span>消防通道</span>
+                            <div class="d-flex ai-center jc-center"><span class="icon-right"></span><span> 往9、8、7馆</span>
+                            </div>
+                        </div>
+                        <div class="platform d-flex flex-column ai-center jc-center"><span>1B01</span>
+                            <div class="video"></div>
+                        </div>
+
+                        <div class="t-sign d-flex ai-center jc-between ">
+                            <div class="d-flex ai-center jc-center"><span>往2、3、4馆 </span><span class="icon-left"></span></div>
+                            <span>消防通道</span>
+                            <div class="d-flex ai-center jc-center"><span class="icon-right"></span><span> 往9、8、7馆</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gate">
+                        <div class="top d-flex ai-center">
+                            <div class="gate-line"></div><span>大门</span>
+                        </div>
+                        <div class="bottom d-flex ai-center">
+                            <div class="gate-line"></div><span>大门</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 合作伙伴 -->
+        <section id="partner" class=" d-flex flex-column jc-center ai-center">
+            <div class="show-partner flex-column jc-center ai-center">
+                <div class="title"></div>
+                <div class="content d-flex ai-center flex-wrap">
+                    <div class="company ">
+                        <div class="seagate"></div>
+                    </div>
+                    <div class="company">
+                        <div class="western-digital"></div>
+                    </div>
+                    <div class="company">
+                        <div class="toshiba"></div>
+                    </div>
+                    <div class="company ">
+                        <div class="intel"></div>
+                    </div>
+                    <div class="company ">
+                        <div class="foctek"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- footer -->
+        <footer class="d-flex jc-center ai-center">
+            <div class="content d-flex  ai-center">
+                <span>版权所有 2011-2019 浙江宇视科技有限公司</span>
+                <div>
+                    <div class="QR-code d-flex ai-center self-end">
+                        <div class="technology "></div>
+                        <div class="industry "></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        console.log(document.body.clientWidth, document.body.clientHeight);
+        var vm = new Vue({
+            el: "#app",
+
+        })
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,859 @@
+html {
+    font-size: 12.66px;
+    /* font-size: 16px; */
+    /* 986/1920(原设计稿的尺寸)X16px */
+    /* font-size: 8.216px; */
+}
+
+body {
+    margin: 0px;
+    font-family: Source Han Sans CN;
+    background-color: #282C35;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    width: 120rem;
+    /* border: 1px solid red; */
+}
+
+a {
+    color: #C5C8D2;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.jc-between {
+    justify-content: space-between;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.jc-around {
+    justify-content: space-around;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.self-start {
+    align-self: flex-start;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+header {
+    width: 120rem;
+    background: rgba(31, 34, 40, 1);
+    height: 5.25rem;
+    overflow: hidden;
+}
+
+
+/* nav logo */
+
+#branding {
+    width: 11.0625rem;
+    height: 2.25rem;
+    background: url('./images/logo.png')no-repeat;
+    background-size: 100% 100%;
+    margin-right: 4.375rem;
+}
+
+header nav li {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgba(197, 200, 210, 1);
+    opacity: 1;
+    margin-right: 5.1875rem;
+    line-height: 5.25rem;
+}
+
+nav .icon {
+    width: 1.0938rem;
+    height: 1.0938rem;
+    background: url('./images/back.png') no-repeat;
+    background-size: 100% 100%;
+    margin-left: 0.3125rem;
+}
+
+.web-earth {
+    width: 68.8331rem;
+    height: 24.6319rem;
+    background: url('./images/web-earth.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.topic h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: rgba(48, 174, 236, 1);
+    opacity: 1;
+}
+
+.topic span {
+    font-size: 1.625rem;
+    line-height: 2.75rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    opacity: 1;
+}
+
+
+/* 展会信息 */
+
+.about-show .title {
+    width: 15.5rem;
+    height: 5.0625rem;
+    background: url('./images/info.png') no-repeat;
+    background-size: 100% 100%;
+    margin-top: 2.0625rem;
+    margin-bottom: 2.6875rem;
+}
+
+.about-show .introduction {
+    width: 64.9375rem;
+    height: 21.375rem;
+    background: url('./images/bluebox.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 0 3.8125rem;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.introduction .label {
+    font-size: 1rem;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    line-height: 1.6875rem;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+}
+
+.introduction .details {
+    width: 57.3125rem;
+    height: 10.4375rem;
+    font-size: 1rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    line-height: 1.625rem;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+}
+
+.more {
+    width: 10.6188rem;
+    height: 1rem;
+    background: url('./images/more.png') no-repeat;
+    background-size: 100% 100%;
+    margin-top: 1.25rem;
+}
+
+
+/* 最丰富业务展示 */
+
+.about-business .title {
+    width: 16.4375rem;
+    height: 8.375rem;
+    background: url('./images/business.png') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-top: 12.3125rem;
+    margin-bottom: 4.9375rem;
+}
+
+.about-business .content {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-business .content .center {
+    width: 62.625rem;
+    height: 34.3125rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about-business .content .center .tabBar {
+    height: 5.125rem;
+    background: rgba(29, 80, 163, 0.43);
+    opacity: 1;
+    padding-left: 2.5625rem;
+    padding-right: 9.1875rem;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 1);
+    opacity: 1;
+}
+
+.about-business .content .center .tabBar span {
+    font-family: Source Han Sans CN;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.9375rem;
+    opacity: 1;
+}
+
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 0 0.5rem 0.875rem;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+    left: 3.625rem;
+    top: 4.25rem;
+}
+
+.triangle:after {
+    content: "";
+    position: absolute;
+    top: 0.125rem;
+    left: -1.25rem;
+    border-width: 0 1.25rem 2.3125rem;
+    border-style: solid;
+    border-color: transparent transparent #233B64;
+}
+
+.about-business .content .center .activeTab {
+    height: 29.1875rem;
+    background: rgba(33, 53, 82, 1);
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+    padding-left: 2.25rem;
+}
+
+.solution {
+    padding-top: 2rem;
+}
+
+.solution label {
+    font-size: 1.375rem;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+}
+
+.solution p {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 0.9375rem;
+    font-size: 1rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #CFDAFF;
+    width: 57.9375rem;
+    height: 3.4375rem;
+    line-height: 3.4375rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 0.6875rem;
+}
+
+
+/* 最强中台能力 */
+
+.about-backup {
+    margin-bottom: 10.75rem;
+}
+
+.about-backup .title {
+    width: 16.4375rem;
+    height: 8.375rem;
+    background: url('./images/backup.png') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-top: 8.375rem;
+    margin-bottom: 4.625rem;
+}
+
+.about-backup .content {
+    width: 60.75rem;
+    height: 13.1875rem;
+    background: rgba(255, 255, 255, 0.08);
+    opacity: 1;
+    padding: 0 1.6875rem 0 1.9375rem;
+    position: relative;
+}
+
+.about-backup .content p {
+    font-size: 1rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    line-height: 1.625rem;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+}
+
+.about-backup .content .t-decoration {
+    position: absolute;
+    width: 10.0625rem;
+    height: 4.1875rem;
+    background: url('./images/t.png') no-repeat;
+    background-size: 100% 100%;
+    top: -2.1875rem;
+    left: -2.125rem;
+}
+
+.about-backup .content .b-decoration {
+    position: absolute;
+    width: 10.0625rem;
+    height: 4.1875rem;
+    background: url('./images/b.png') no-repeat;
+    background-size: 100% 100%;
+    bottom: -1.4375rem;
+    right: -2.875rem;
+}
+
+.about-hardware .title {
+    width: 16.4375rem;
+    height: 8.375rem;
+    background: url('./images/hardware.png') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-bottom: 4.625rem;
+}
+
+
+/* 九山四关硬件产品 */
+
+.about-hardware .content {
+    width: 100%;
+    height: 38.8125rem;
+    background: rgba(57, 61, 69, 1);
+    margin-bottom: 8.1875rem;
+}
+
+.about-hardware .content .camera {
+    width: 20rem;
+    height: 32.5rem;
+    background: url('./images/camera.png') no-repeat;
+    background-size: 100% 100%;
+    margin-right: 2.6875rem;
+}
+
+
+/* 资料下载 */
+
+.file-download {
+    width: 76.0106rem;
+    margin-bottom: 9.7538rem;
+    box-sizing: border-box;
+}
+
+.file-download .content {
+    width: 100%;
+}
+
+.file-download .title {
+    width: 15.5rem;
+    height: 5.0625rem;
+    background: url('./images/download.png') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-bottom: 6.5rem;
+}
+
+.file-download .single-file {
+    margin-bottom: 1.9375rem;
+    margin-right: 5.2919rem;
+}
+
+.file-download .single-file .icon-file {
+    width: 0.7913rem;
+    height: 1.0575rem;
+    background: url('./images/doc.png') no-repeat;
+    background-size: 100% 100%;
+    margin-right: 0.3125rem;
+}
+
+.file-download .single-file .file-name {
+    font-size: 1rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    line-height: 1.6875rem;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+}
+
+.file-download .single-file .icon-download {
+    width: 1.0744rem;
+    height: 1.0744rem;
+    background: url('./images/dow.png') no-repeat;
+    background-size: 100% 100%;
+    margin-left: 8.8163rem;
+}
+
+.single-file div {
+    width: 22.8125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-file div:hover {
+    width: 22.8125rem;
+    background: rgba(108, 119, 158, 1);
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    height: 12.9375rem;
+    background: rgba(31, 34, 40, 1);
+    opacity: 1;
+}
+
+footer span {
+    font-size: 0.875rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(136, 136, 136, 1);
+    opacity: 1;
+}
+
+footer .QR-code {
+    margin-left: 19.25rem;
+    /* align-self: flex-end; */
+}
+
+.technology {
+    width: 7.3125rem;
+    height: 9rem;
+    background: url('./images/technology.png') no-repeat;
+    background-size: 100% 100%;
+    margin-right: 1.9375rem;
+}
+
+.industry {
+    width: 7.3125rem;
+    height: 9rem;
+    background: url('./images/industry.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+
+/* 合作伙伴 */
+
+.show-partner {
+    width: 76.75rem;
+    margin-bottom: 12.625rem;
+}
+
+.show-partner .title {
+    width: 48rem;
+    height: 3.625rem;
+    background: url('./images/partner.png') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-bottom: 5.5625rem;
+}
+
+.show-partner .company {
+    width: 17.8125rem;
+    height: 12.9375rem;
+    background: linear-gradient(180deg, rgba(25, 52, 110, 1) 0%, rgba(25, 81, 122, 1) 100%);
+    opacity: 1;
+    margin-right: 1.125rem;
+    margin-bottom: 2.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-partner .company .seagate {
+    width: 12.1875rem;
+    height: 10.75rem;
+    background: url('./images/seagate.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.show-partner .company .western-digital {
+    width: 16.005rem;
+    height: 2.5537rem;
+    background: url('./images/western-digital.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.show-partner .company .toshiba {
+    width: 11.7788rem;
+    height: 1.795rem;
+    background: url('./images/toshiba.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.show-partner .company .intel {
+    width: 8.4869rem;
+    height: 5.5963rem;
+    background: url('./images/intel.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.show-partner .company .foctek {
+    width: 10.14rem;
+    height: 2.1794rem;
+    background: url('./images/foctek.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+
+/* 展会视频 */
+
+.show-video .title {
+    width: 15.5rem;
+    height: 5.0625rem;
+    background: url('./images/video.png') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-bottom: 2.0625rem;
+}
+
+.show-video .content {
+    width: 70.125rem;
+    height: 46.5rem;
+    background: url('./images/watermark.png') no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 4.4375rem;
+    padding-top: 5.4375rem;
+    position: relative;
+}
+
+
+/* 展台位置 */
+
+.position {
+    width: 6.5625rem;
+    margin-bottom: 1.25rem;
+}
+
+.position span:nth-child(1) {
+    width: 6.3125rem;
+    height: 2.25rem;
+    border: 0.125rem solid rgba(207, 218, 255, 1);
+    opacity: 1;
+    font-size: 1rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+}
+
+.position .b-line {
+    width: 5.0625rem;
+    height: 0px;
+    border: 0.0625rem solid rgba(207, 218, 255, 1);
+    margin-top: 0.6875rem;
+    float: right;
+}
+
+
+/* 往234987馆 */
+
+.t-sign {
+    width: 38.125rem;
+    height: 3.1875rem;
+    background: rgba(193, 193, 193, 0.36);
+    padding: 0 1.3125rem;
+    box-sizing: border-box;
+}
+
+.t-sign>span {
+    font-size: 0.875rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(207, 218, 255, 1);
+}
+
+.t-sign div span {
+    font-size: 1.125rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(207, 218, 255, 1);
+}
+
+.t-sign div span.icon-left {
+    width: 3.2675rem;
+    height: 0.7656rem;
+    background: url('./images/point-left.png') no-repeat;
+    background-size: 100% 100%;
+    margin-left: 0.5rem;
+}
+
+.t-sign div span.icon-right {
+    width: 3.2675rem;
+    height: 0.7656rem;
+    background: url('./images/point-right.png') no-repeat;
+    background-size: 100% 100%;
+    margin-right: 0.5rem;
+}
+
+
+/* 1B01 */
+
+.platform {
+    width: 24.75rem;
+    height: 16.8125rem;
+    border: 0.625rem solid rgba(48, 174, 236, 1);
+    opacity: 1;
+    margin: 0 auto;
+    margin-top: 1.8125rem;
+    margin-bottom: 2.0625rem;
+}
+
+.platform>span {
+    width: 5.1875rem;
+    height: 2.25rem;
+    font-size: 2.25rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    line-height: 3.8125rem;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+    margin-bottom: 2rem;
+}
+
+.platform>div {
+    width: 20.375rem;
+    height: 4.375rem;
+    background: url('./images/platform.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+
+/* 大门 */
+
+.gate {
+    width: 3.1875rem;
+    height: 41.3125rem;
+    background: linear-gradient(0deg, rgba(96, 96, 96, 0) 0%, rgba(96, 96, 96, 0.45) 50%, rgba(96, 96, 96, 0) 100%);
+    /* opacity: 0.36; */
+    position: relative;
+}
+
+.gate>div {
+    position: absolute;
+    left: 2.8125rem;
+    top: 6.5rem;
+}
+
+.bottom {
+    bottom: -18.625rem;
+}
+
+.gate>div span {
+    width: 2.75rem;
+    font-size: 0.875rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+    margin-left: 0.9375rem;
+    display: block;
+}
+
+.gate-line {
+    width: 0.4375rem;
+    height: 3.1875rem;
+    background: rgba(207, 218, 255, 1);
+    opacity: 1;
+}
+
+
+/* 左上角一号展厅 */
+
+.upper-left-corner {
+    position: absolute;
+    left: 10.5rem;
+    top: 6.9375rem;
+    /* border: 1px solid rgba(207, 218, 255, 1) */
+}
+
+.upper-left-corner span:nth-child(1) {
+    width: 6.5rem;
+    height: 1.625rem;
+    font-size: 1.625rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    line-height: 2.75rem;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+    margin-bottom: 1.125rem;
+}
+
+.upper-left-corner span:nth-child(2) {
+    font-size: 1.125rem;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(207, 218, 255, 1);
+    opacity: 1;
+    margin-bottom: 0.625rem;
+}
+
+.upper-left-corner span.icon-compass {
+    width: 2.375rem;
+    height: 2.375rem;
+    background: url('./images/compass.png') no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 2.1875rem;
+}
+
+
+/* 展区定位 */
+
+.hotSpot {
+    position: absolute;
+}
+
+.hotSpot .dot {
+    width: 0.3125rem;
+    height: 0.3125rem;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 1.25rem #30AEEC;
+    border-radius: 50%;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.hotSpot div[class^="ripple"] {
+    width: 0.3125rem;
+    height: 0.3125rem;
+    background: #30AEEC;
+    box-shadow: 0 0 0.75rem #30AEEC;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 1.2s linear infinite;
+    -webkit-animation: ripple 1.2s linear infinite;
+    -moz-animation: ripple 1.2s linear infinite;
+}
+
+.ripple2 {
+    animation-delay: 0.4s !important;
+}
+
+.ripple3 {
+    animation-delay: 0.8s !important;
+}
+
+@keyframes ripple {
+    0% {}
+    50% {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+    }
+    100% {
+        width: 25px;
+        height: 25px;
+        opacity: 0;
+    }
+}
+
+.font-end {
+    top: 5.75rem;
+    left: 21.25rem;
+}
+
+.data-center {
+    top: 9.8125rem;
+    left: 16.75rem;
+}
+
+.back-end {
+    top: 13.8125rem;
+    left: 15.9375rem;
+}
+
+.back-end {
+    top: 13.8125rem;
+    left: 15.9375rem;
+}
+
+.public-safety {
+    top: 18.1875rem;
+    left: 13.8125rem;
+}
+
+.city-traffic {
+    top: 23rem;
+    left: 14.375rem;
+}
+
+.smart-park {
+    top: 21.625rem;
+    left: 21.25rem;
+}
+
+.vaas {
+    top: 15.125rem;
+    left: 22.75rem;
+}
+
+.smart-traffic {
+    top: 10.75rem;
+    left: 28.0625rem;
+}
+
+.game {
+    top: 6.3125rem;
+    right: 17.25rem;
+}
+
+.safe-OM {
+    top: 12.8125rem;
+    right: 15.75rem;
+}
+
+.reception {
+    bottom: -0.75rem;
+    right: 15.125rem;
+}
+
+.oversea-show {
+    top: 7.1875rem;
+    right: 4.375rem;
+}
+
+.business {
+    bottom: -0.125rem;
+    right: 28.5rem;
+}
+
+.com-security {
+    top: 15.875rem;
+    left: 32.8125rem;
+}
+
+.cooperation {
+    top: 5.125rem;
+    left: 32.9375rem;
+}
