@@ -164,7 +164,6 @@ nav .icon {
     height: 1rem;
     background: url('./images/more.png') no-repeat;
     background-size: 100% 100%;
-    margin-top: 1.25rem;
 }
 
 
@@ -376,7 +375,7 @@ nav .icon {
 }
 
 .file-download .single-file {
-    margin-bottom: 1.9375rem;
+    margin-bottom: 1rem;
     margin-right: 5.2919rem;
 }
 
@@ -406,6 +405,7 @@ nav .icon {
 }
 
 .single-file div {
+    height:2.1875rem;
     width: 22.8125rem;
     display: flex;
     justify-content: center;
@@ -437,6 +437,7 @@ footer span {
 
 footer .QR-code {
     margin-left: 19.25rem;
+    margin-left: 17.5rem;
     /* align-self: flex-end; */
 }
 
