@@ -270,6 +270,13 @@ nav .icon {
     width: 57.9375rem;
 }
 
+.solution div {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .solution label {
     font-size: 1.375rem;
     font-family: Source Han Sans CN;
@@ -285,14 +292,34 @@ nav .icon {
     font-size: 1rem;
     font-weight: 400;
     color: #CFDAFF;
-    width: 57.9375rem;
+    /* width: 57.9375rem; */
+    width: 98%;
     height: 3.4375rem;
     line-height: 3.4375rem;
     background: rgba(255, 255, 255, 0.1);
     padding-left: 0.6875rem;
+    padding-right: 0.6875rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-center;
+}
+
+.tabEnd {
+    display: flex !important;
+    justify-content: flex-end !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+}
+
+.tabCenter {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -921,7 +948,7 @@ footer .QR-code {
 .navigator {
     position: fixed;
     right: 12rem;
-    top: 20.5rem;
+    top: 10.5rem;
     z-index: 999;
 }
 

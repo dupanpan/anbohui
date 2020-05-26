@@ -18,11 +18,11 @@
                 <div id="branding"></div>
                 <nav>
                     <ul class='d-flex'>
-                        <li><a href="#">参会介绍</a></li>
-                        <li><a href="#">展台看点</a></li>
-                        <li><a href="#">资料下载</a></li>
-                        <li><a href="#">参会指引</a></li>
-                        <li><a href="#">合作伙伴</a></li>
+                        <li><a href="#aboutShow">参会介绍</a></li>
+                        <li><a href="#aboutBusiness">展台看点</a></li>
+                        <li><a href="#downloadFile">资料下载</a></li>
+                        <li><a href="#guide">参会指引</a></li>
+                        <li><a href="#partner">合作伙伴</a></li>
                         <li><a href="#" class="d-flex ai-center "><span>返回官网</span><span class="icon ml-2"></span></a>
                         </li>
                     </ul>
@@ -35,7 +35,7 @@
             <ul class="d-flex flex-column jc-around">
                 <li v-for="(item,index) in navItems" :key="index">
                     <a href="#" v-if="index===navItems.length-1">
-                        <span :class="{selected: active===index}" @click="scrollTo(5)">{{item}}</span><span class="icon-circle" :class="{active: active===index}"></span>
+                        <span :class="{selected: active===index}">{{item}}</span><span class="icon-circle" :class="{active: active===index}"></span>
                     </a>
                     <span v-show="!(index===navItems.length-1)" :class="{selected: active===index}" @click="scrollTo(index)">{{item}}</span>
                     <span v-show="!(index===navItems.length-1)" class="icon-circle" :class="{active: active===index}"></span>
@@ -195,9 +195,17 @@
                             </div>
                         </div>
                         <div class="activeTab">
-                            <div class="solution  " v-for="(solution,index) in tabContent[index]" :key="index">
+                            <div class="solution " v-show="index==0" v-for="(solution,i) in tabContent[index]" :key="i">
                                 <label>{{solution.name}}</label>
                                 <p>{{solution.desc}}</p>
+                            </div>
+                            <div class="solution " v-show="index==1" v-for="(solution,i) in tabContent[index]" :key="i">
+                                <label class="tabCenter">{{solution.name}}</label>
+                                <p class="tabCenter">{{solution.desc}}</p>
+                            </div>
+                            <div class="solution " v-show="index==2" v-for="(solution,i) in tabContent[index]" :key="i">
+                                <label class="tabEnd">{{solution.name}}</label>
+                                <p class="tabEnd">{{solution.desc}}</p>
                             </div>
                         </div>
                     </div>
@@ -383,27 +391,25 @@
                 onScroll: function() {
                     // 获取所有锚点元素
                     const navContents = document.querySelectorAll('section')
-                    const nav = document.querySelectorAll('aside')
-                        // 所有锚点元素的 offsetTop
+                    const nav = document.querySelectorAll('#showDisplay')
                     const offsetTopArr = []
                     this.offsetTopArr = offsetTopArr
-                    console.log(this.offsetTopArr)
                     for (let i = 0; i < navContents.length; i++) {
                         offsetTopArr.push(navContents[i].offsetTop)
                     }
                     // 获取当前文档流的 scrollTop
                     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-                    if (scrollTop >= offsetTopArr[0] / 2) {
+                    if (scrollTop > nav[0].offsetTop) {
                         this.showLeftNav = true;
                     } else {
                         this.showLeftNav = false;
                     }
-                    // 定义当前点亮的导航下标
+                    // 定义当前点亮的导航下标  
                     let navIndex = 0
-                    for (let n = 0; n < offsetTopArr.length; n++) {
-                        // 如果 scrollTop 大于等于[n]的 offsetTop 则说明 [n-1] 的内容已经完全不可见
-                        // 那么此时导航索引就应该是[n]了
-                        if (scrollTop >= offsetTopArr[n]) {
+                    for (let n = 0; n < this.navItems.length; n++) {
+                        if (n === this.navItems.length - 1) {
+                            // navIndex = n
+                        } else if (scrollTop >= offsetTopArr[n]) {
                             navIndex = n
                         }
                     }
@@ -411,18 +417,11 @@
                 },
                 // 跳转到指定索引的元素
                 scrollTo: function(index) {
-                    // 获取目标的 offsetTop
-                    // css选择器是从 1 开始计数
                     const targetOffsetTop = this.offsetTopArr[index]
-                    if (index) {
-                        const bottomOffset = this.offsetTopArr[index - 1]
-                    }
-
-                    // 获取当前 offsetTop
                     let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
                         // 定义一次跳 50 个像素，数字越大跳得越快，但是会有掉帧得感觉
-                    const STEP = 50
-                        // 判断是往下滑还是往上滑
+                    const STEP = 40
+                        // 判断是往下滑还是往上滑  scrollTop走过的路里面就有我们要去的地方 所以往回走 往上滑
                     if (scrollTop > targetOffsetTop) {
                         // 往上滑
                         smoothUp()
@@ -443,7 +442,7 @@
                             }
                             document.body.scrollTop = scrollTop
                             document.documentElement.scrollTop = scrollTop
-                                // 关于 requestAnimationFrame 可以自己查一下，在这种场景下，相比 setInterval 性价比更高
+                                // 关于 requestAnimationFrame ，在这种场景下，相比 setInterval 性价比更高
                             requestAnimationFrame(smoothDown)
                         }
                     }
