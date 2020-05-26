@@ -68,7 +68,7 @@ header {
     height: 2.25rem;
     background: url('./images/logo.png')no-repeat;
     background-size: 100% 100%;
-    /* margin-right: 4.375rem; */
+    margin-right: 4.375rem;
 }
 
 header nav li {
