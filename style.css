@@ -8,7 +8,6 @@ body {
     background-color: #282C35;
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
-    width: 120rem;
     width: 100%;
 }
 
@@ -58,7 +57,7 @@ li {
 }
 
 header {
-    width: 120rem;
+    width: 100%;
     background: rgba(31, 34, 40, 1);
     height: 5.25rem;
     overflow: hidden;
@@ -69,7 +68,7 @@ header {
     height: 2.25rem;
     background: url('./images/logo.png')no-repeat;
     background-size: 100% 100%;
-    margin-right: 4.375rem;
+    /* margin-right: 4.375rem; */
 }
 
 header nav li {
@@ -405,7 +404,6 @@ nav .icon {
     font-size: 1rem;
     font-family: Source Han Sans CN;
     font-weight: 400;
-    /* line-height: 1.6875rem; */
     color: rgba(207, 218, 255, 1);
     opacity: 1;
 }
