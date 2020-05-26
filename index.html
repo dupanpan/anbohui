@@ -7,6 +7,7 @@
     <title>Uniview Anbohui | welcome</title>
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./responsive_layout.js"></script>
 </head>
 
 <body>
@@ -197,23 +198,13 @@
                 </div>
                 <div class="center">
                     <div class="tabBar d-flex ai-center jc-between ">
-                        <span>智慧城市</span>
-                        <span>公共安全</span>
-                        <span>综合安防</span>
+                        <span v-for="(item,index) in tabTitle" :key="index" @click="clicked(index)">{{item}}</span>
                         <span class="triangle"></span>
                     </div>
-                    <div class="activeTab ">
-                        <div class="solution">
-                            <label>商业综合体解决方案</label>
-                            <p>精准画像，精准营销，让购物中心运营方详细了解客流的动线、年龄、性别与购物习惯</p>
-                        </div>
-                        <div class="solution">
-                            <label>智慧园区管理解决方案</label>
-                            <p>让您运营管理更精细，让您办公更便捷、安全、舒适。</p>
-                        </div>
-                        <div class="solution">
-                            <label>城市交通管理联合解决方案</label>
-                            <p>交通运行能力全域感知、重点车辆的闭环管理。</p>
+                    <div class="activeTab">
+                        <div class="solution  " v-for="(solution,index) in tabContent[index]" :key="index">
+                            <label>{{solution.name}}</label>
+                            <p>{{solution.desc}}</p>
                         </div>
                     </div>
                 </div>
@@ -343,6 +334,50 @@
         console.log(document.body.clientWidth, document.body.clientHeight);
         var vm = new Vue({
             el: "#app",
+            data: {
+                index: 0,
+                tabTitle: ['智慧城市', '公共安全', '综合安防'],
+
+                tabContent: [
+                    [{
+                        name: "商业综合体解决方案",
+                        desc: "精准画像，精准营销，让购物中心运营方详细了解客流的动线、年龄、性别与购物习惯"
+                    }, {
+                        name: "智慧园区管理解决方案",
+                        desc: "让您运营管理更精细，让您办公更便捷、安全、舒适。"
+                    }, {
+                        name: "城市交通管理联合解决方案",
+                        desc: "交通运行能力全域感知、重点车辆的闭环管理。"
+                    }],
+                    [{
+                        name: "公共安全合体解决方案",
+                        desc: "精准画像，精准营销，让购物中心运营方详细了解客流的动线、年龄、性别与购物习惯"
+                    }, {
+                        name: "公共安全管理解决方案",
+                        desc: "让您运营管理更精细，让您办公更便捷、安全、舒适。"
+                    }, {
+                        name: "公共安全管理联合解决方案",
+                        desc: "交通运行能力全域感知、重点车辆的闭环管理。"
+                    }],
+                    [{
+                        name: "综合安防合体解决方案",
+                        desc: "精准画像，精准营销，让购物中心运营方详细了解客流的动线、年龄、性别与购物习惯"
+                    }, {
+                        name: "综合安防管理解决方案",
+                        desc: "让您运营管理更精细，让您办公更便捷、安全、舒适。"
+                    }, {
+                        name: "综合安防管理联合解决方案",
+                        desc: "交通运行能力全域感知、重点车辆的闭环管理。"
+                    }],
+
+                ]
+            },
+            methods: {
+                clicked(index) {
+                    this.index = index
+                }
+            }
+
         })
     </script>
 </body>

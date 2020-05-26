@@ -1,8 +1,5 @@
 html {
-    font-size: 12.66px;
-    /* font-size: 16px; */
-    /* 986/1920(原设计稿的尺寸)X16px */
-    /* font-size: 8.216px; */
+    font-size: 16px;
 }
 
 body {
@@ -12,6 +9,7 @@ body {
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     width: 120rem;
+    width: 100%;
 }
 
 a {
@@ -190,7 +188,6 @@ nav .icon {
     transform: translate(-50%, -50%);
 }
 
-
 .about-business .content .center .tabBar {
     height: 5.125rem;
     background: rgba(29, 80, 163, 0.43);
@@ -213,7 +210,7 @@ nav .icon {
 .about-business .content .left {
     width: 55.0625rem;
     height: 34.0625rem;
-    background: url('./images/business-left.png') no-repeat -84px 0px;
+    background: url('./images/business-left.png') no-repeat -5.25rem 0px;
     background-size: 100% 100%;
     float: left;
 }
@@ -221,7 +218,7 @@ nav .icon {
 .about-business .content .right {
     width: 51.0625rem;
     height: 34.0625rem;
-    background: url('./images/business-right.png') no-repeat 133px 0px;
+    background: url('./images/business-right.png') no-repeat 8.3125rem 0px;
     background-size: 100% 100%;
     float: right;
 }
@@ -258,6 +255,10 @@ nav .icon {
 
 .solution {
     padding-top: 2rem;
+    width: 57.9375rem;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
 }
 
 .solution label {
@@ -282,6 +283,7 @@ nav .icon {
     background: rgba(255, 255, 255, 0.1);
     padding-left: 0.6875rem;
 }
+
 
 /* 最强中台能力 */
 
@@ -403,7 +405,7 @@ nav .icon {
     font-size: 1rem;
     font-family: Source Han Sans CN;
     font-weight: 400;
-    line-height: 1.6875rem;
+    /* line-height: 1.6875rem; */
     color: rgba(207, 218, 255, 1);
     opacity: 1;
 }
@@ -539,7 +541,9 @@ footer .QR-code {
     background-size: 100% 100%;
 }
 
+
 /* 展会视频 */
+
 .show-video .title {
     width: 15.5rem;
     height: 5.0625rem;
@@ -559,7 +563,9 @@ footer .QR-code {
     position: relative;
 }
 
+
 /* 展台位置 */
+
 .position {
     width: 6.5625rem;
     margin-bottom: 1.25rem;
@@ -585,7 +591,9 @@ footer .QR-code {
     float: right;
 }
 
+
 /* 往234987馆 */
+
 .t-sign {
     width: 38.125rem;
     height: 3.1875rem;
@@ -624,7 +632,9 @@ footer .QR-code {
     margin-right: 0.5rem;
 }
 
+
 /* 1B01 */
+
 .platform {
     width: 24.75rem;
     height: 16.8125rem;
@@ -654,7 +664,9 @@ footer .QR-code {
     background-size: 100% 100%;
 }
 
+
 /* 大门 */
+
 .gate {
     width: 3.1875rem;
     height: 41.3125rem;
@@ -690,7 +702,9 @@ footer .QR-code {
     opacity: 1;
 }
 
+
 /* 左上角一号展厅 */
+
 .upper-left-corner {
     position: absolute;
     left: 10.5rem;
@@ -726,7 +740,9 @@ footer .QR-code {
     margin-bottom: 2.1875rem;
 }
 
+
 /* 展区定位 */
+
 .hotSpot {
     position: absolute;
     -webkit-backface-visibility: hidden;
@@ -783,22 +799,19 @@ footer .QR-code {
 
 @keyframes ripple {
     0% {}
-
     50% {
-        width: 10px;
-        height: 10px;
+        width: 0.625rem;
+        height: 0.625rem;
         opacity: 1;
     }
-
     70% {
-        width: 15px;
-        height: 15px;
+        width: 0.9375rem;
+        height: 0.9375rem;
         opacity: 0.5;
     }
-
     100% {
-        width: 5px;
-        height: 5px;
+        width: 0.3125rem;
+        height: 0.3125rem;
         opacity: 0;
     }
 }
@@ -883,13 +896,14 @@ footer .QR-code {
     left: 32.9375rem;
 }
 
+
 /* 左侧导航栏 */
 
 .navigator {
-    position: absolute;
+    position: fixed;
     right: 12rem;
     top: 20.5rem;
-    z-index: 9;
+    z-index: 999;
 }
 
 span.icon-circle {
@@ -903,7 +917,7 @@ span.icon-circle {
 }
 
 .navigator li span:nth-child(1) {
-    width: 3.5rem;
+    /* width: 3.5rem; */
     font-size: 0.875rem;
     font-family: Source Han Sans CN;
     font-weight: 400;
@@ -942,6 +956,7 @@ span.icon-circle {
 
 
 /* 展区位置 */
+
 #showDisplay {
     position: relative;
     width: 100%;
