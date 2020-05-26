@@ -114,6 +114,10 @@ nav .icon {
 
 /* 展会信息 */
 
+.about-show {
+    margin-bottom: 6rem;
+}
+
 .about-show .title {
     width: 15.5rem;
     height: 5.0625rem;
@@ -163,13 +167,17 @@ nav .icon {
 
 /* 最丰富业务展示 */
 
+#aboutBusiness {
+    padding-top: 6.3125rem;
+    /* margin-top: 12.3125rem; */
+}
+
 .about-business .title {
     width: 16.4375rem;
     height: 8.375rem;
     background: url('./images/business.png') no-repeat;
     background-size: 100% 100%;
     margin: 0 auto;
-    margin-top: 12.3125rem;
     margin-bottom: 4.9375rem;
 }
 
@@ -230,8 +238,8 @@ nav .icon {
     border-width: 0 0.5rem 0.875rem;
     border-style: solid;
     border-color: transparent transparent #fff;
-    left: 3.625rem;
-    top: 4.25rem;
+    left: 1.625rem !important;
+    top: 2.6625rem;
 }
 
 .triangle:after {
@@ -253,12 +261,13 @@ nav .icon {
     padding-left: 2.25rem;
 }
 
+.tabTitle {
+    position: relative;
+}
+
 .solution {
     padding-top: 2rem;
     width: 57.9375rem;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
 }
 
 .solution label {
@@ -274,7 +283,6 @@ nav .icon {
     margin: 0px;
     margin-top: 0.9375rem;
     font-size: 1rem;
-    font-family: Source Han Sans CN;
     font-weight: 400;
     color: #CFDAFF;
     width: 57.9375rem;
@@ -282,6 +290,9 @@ nav .icon {
     line-height: 3.4375rem;
     background: rgba(255, 255, 255, 0.1);
     padding-left: 0.6875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
@@ -355,7 +366,7 @@ nav .icon {
     width: 100%;
     height: 38.8125rem;
     background: rgba(57, 61, 69, 1);
-    margin-bottom: 8.1875rem;
+    /* margin-bottom: 8.1875rem; */
 }
 
 .about-hardware .content .camera {
@@ -370,8 +381,8 @@ nav .icon {
 /* 资料下载 */
 
 .file-download {
+    margin-top: 8.1875rem;
     width: 76.0106rem;
-    margin-bottom: 9.7538rem;
     box-sizing: border-box;
 }
 
@@ -485,6 +496,7 @@ footer .QR-code {
 
 .show-partner {
     width: 76.75rem;
+    padding-top: 4.4375rem;
     margin-bottom: 12.625rem;
 }
 
@@ -547,6 +559,10 @@ footer .QR-code {
 
 /* 展会视频 */
 
+.show-video {
+    padding-top: 9.7538rem;
+}
+
 .show-video .title {
     width: 15.5rem;
     height: 5.0625rem;
@@ -561,7 +577,7 @@ footer .QR-code {
     height: 46.5rem;
     background: url('./images/watermark.png') no-repeat;
     background-size: 100% 100%;
-    margin-bottom: 4.4375rem;
+    /* margin-bottom: 4.4375rem; */
     padding-top: 5.4375rem;
     position: relative;
 }

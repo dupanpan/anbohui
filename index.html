@@ -30,8 +30,22 @@
             </div>
         </header>
 
+        <!-- 左侧导航 -->
+        <aside v-show="showLeftNav" class="navigator d-flex ai-center">
+            <ul class="d-flex flex-column jc-around">
+                <li v-for="(item,index) in navItems" :key="index">
+                    <a href="#" v-if="index===navItems.length-1">
+                        <span :class="{selected: active===index}" @click="scrollTo(5)">{{item}}</span><span class="icon-circle" :class="{active: active===index}"></span>
+                    </a>
+                    <span v-show="!(index===navItems.length-1)" :class="{selected: active===index}" @click="scrollTo(index)">{{item}}</span>
+                    <span v-show="!(index===navItems.length-1)" class="icon-circle" :class="{active: active===index}"></span>
+                </li>
+            </ul>
+            <div class="axis"></div>
+        </aside>
+
         <!-- 主题 -->
-        <section class="d-flex jc-center flex-column ai-center">
+        <div class="d-flex jc-center flex-column ai-center">
             <div class="web-earth d-flex jc-center">
                 <div class="topic d-flex flex-column ai-center jc-center">
                     <h1>守护安全美好生活</h1>
@@ -40,10 +54,10 @@
                     <span>展位号：1B01</span>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- 展区布局 -->
-        <section id="showDisplay" class="d-flex flex-column jc-center ai-center">
+        <div id="showDisplay" class="d-flex flex-column jc-center ai-center">
             <div class="d-flex">
                 <div class="left-arrow">
                     <div class="left"></div>
@@ -149,31 +163,7 @@
                     <div class="right"></div>
                 </div>
             </div>
-            <!-- 左侧导航 -->
-            <aside class="navigator d-flex ai-center">
-                <ul class="d-flex flex-column jc-around">
-                    <a href="#aboutShow">
-                        <li><span class="selected">展会信息</span><span class="icon-circle active"></span></li>
-                    </a>
-                    <a href="#aboutBusiness">
-                        <li><span>展台看点</span><span class="icon-circle "></span></li>
-                    </a>
-                    <a href="#downloadFile">
-                        <li><span>资料下载</span><span class="icon-circle"></span></li>
-                    </a>
-                    <a href="#guide">
-                        <li><span>参会指引</span><span class="icon-circle"></span></li>
-                    </a>
-                    <a href="#partner">
-                        <li><span>合作伙伴</span><span class="icon-circle"></span></li>
-                    </a>
-                    <a href="#">
-                        <li><span>返回官网</span><span class="icon-circle"></span></li>
-                    </a>
-                </ul>
-                <div class="axis"></div>
-            </aside>
-        </section>
+        </div>
 
         <!-- 展会信息 -->
         <section id="aboutShow" class=" about-show d-flex flex-column jc-center ai-center">
@@ -191,46 +181,49 @@
         </section>
 
         <!-- 最丰富业务展示 -->
-        <section id="aboutBusiness" class="about-business">
-            <div class="title"></div>
-            <div class="content">
-                <div class="left">
-                </div>
-                <div class="center">
-                    <div class="tabBar d-flex ai-center jc-between ">
-                        <span v-for="(item,index) in tabTitle" :key="index" @click="clicked(index)">{{item}}</span>
-                        <span class="triangle"></span>
+        <section id="aboutBusiness" class="d-flex flex-column ">
+            <div class="about-business">
+                <div class="title"></div>
+                <div class="content">
+                    <div class="left">
                     </div>
-                    <div class="activeTab">
-                        <div class="solution  " v-for="(solution,index) in tabContent[index]" :key="index">
-                            <label>{{solution.name}}</label>
-                            <p>{{solution.desc}}</p>
+                    <div class="center">
+                        <div class="tabBar d-flex ai-center jc-between ">
+                            <div class="tabTitle" v-for="(item,i) in tabTitle" :key="i" @click="clicked(i)" class="d-flex flex-clumn">
+                                <span>{{item}}</span>
+                                <span class="triangle" v-show="index==i"></span>
+                            </div>
+                        </div>
+                        <div class="activeTab">
+                            <div class="solution  " v-for="(solution,index) in tabContent[index]" :key="index">
+                                <label>{{solution.name}}</label>
+                                <p>{{solution.desc}}</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="right"></div>
                 </div>
-                <div class="right"></div>
             </div>
-        </section>
-
-        <!-- 最强中台能力 -->
-        <section class="about-backup d-flex flex-column jc-center ai-center">
-            <div class="title"></div>
-            <div class="content d-flex ai-center">
-                <div class="t-decoration"></div>
-                <p>IMOS+阿里云。首次发布数据中台、业务中台双中台战略， 包含IoT引擎、视频云引擎、视觉智能引擎和数据智能引擎。 宇视作为阿里云最高级别合作伙伴——飞天联盟战略合作伙伴， 深度集成阿里公共云，打造AIoT最强中台，强化软件服务能力， 解决交付速度与研发效率、用户差异化需求与版本质量控制之间的矛盾， 打造AIoT解决方案的强大竞争力。
-                </p>
-                <div class="b-decoration"></div>
-            </div>
-        </section>
-
-        <!-- 九山四关硬件产品 -->
-        <section class="about-hardware ">
-            <div class="d-flex flex-column jc-center ai-center">
+            <!-- 最强中台能力 -->
+            <div class="about-backup d-flex flex-column jc-center ai-center">
                 <div class="title"></div>
-                <div class="content d-flex ai-center jc-center">
-                    <div class="camera"></div>
-                    <div class="camera"></div>
-                    <div class="camera"></div>
+                <div class="content d-flex ai-center">
+                    <div class="t-decoration"></div>
+                    <p>IMOS+阿里云。首次发布数据中台、业务中台双中台战略， 包含IoT引擎、视频云引擎、视觉智能引擎和数据智能引擎。 宇视作为阿里云最高级别合作伙伴——飞天联盟战略合作伙伴， 深度集成阿里公共云，打造AIoT最强中台，强化软件服务能力， 解决交付速度与研发效率、用户差异化需求与版本质量控制之间的矛盾， 打造AIoT解决方案的强大竞争力。
+                    </p>
+                    <div class="b-decoration"></div>
+                </div>
+            </div>
+
+            <!-- 九山四关硬件产品 -->
+            <div class="about-hardware ">
+                <div class="d-flex flex-column jc-center ai-center">
+                    <div class="title"></div>
+                    <div class="content d-flex ai-center jc-center">
+                        <div class="camera"></div>
+                        <div class="camera"></div>
+                        <div class="camera"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -331,13 +324,15 @@
         </footer>
     </div>
     <script>
-        console.log(document.body.clientWidth, document.body.clientHeight);
         var vm = new Vue({
             el: "#app",
             data: {
+                active: 0,
                 index: 0,
+                offsetTopArr: [],
+                navItems: ['展会信息', '展台看点', '资料下载', '参会指引', '合作伙伴', '返回官网'],
                 tabTitle: ['智慧城市', '公共安全', '综合安防'],
-
+                showLeftNav: false,
                 tabContent: [
                     [{
                         name: "商业综合体解决方案",
@@ -372,9 +367,99 @@
 
                 ]
             },
+            mounted: function() {
+                // 监听滚动事件
+                window.addEventListener('scroll', this.onScroll, false)
+            },
+            destroy: function() {
+                // 必须移除监听器，不然当该vue组件被销毁了，监听器还在就会出错
+                window.removeEventListener('scroll', this.onScroll)
+            },
             methods: {
                 clicked: function(index) {
                     this.index = index
+                },
+                // 滚动监听器
+                onScroll: function() {
+                    // 获取所有锚点元素
+                    const navContents = document.querySelectorAll('section')
+                    const nav = document.querySelectorAll('aside')
+                        // 所有锚点元素的 offsetTop
+                    const offsetTopArr = []
+                    this.offsetTopArr = offsetTopArr
+                    console.log(this.offsetTopArr)
+                    for (let i = 0; i < navContents.length; i++) {
+                        offsetTopArr.push(navContents[i].offsetTop)
+                    }
+                    // 获取当前文档流的 scrollTop
+                    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+                    if (scrollTop >= offsetTopArr[0] / 2) {
+                        this.showLeftNav = true;
+                    } else {
+                        this.showLeftNav = false;
+                    }
+                    // 定义当前点亮的导航下标
+                    let navIndex = 0
+                    for (let n = 0; n < offsetTopArr.length; n++) {
+                        // 如果 scrollTop 大于等于[n]的 offsetTop 则说明 [n-1] 的内容已经完全不可见
+                        // 那么此时导航索引就应该是[n]了
+                        if (scrollTop >= offsetTopArr[n]) {
+                            navIndex = n
+                        }
+                    }
+                    this.active = navIndex
+                },
+                // 跳转到指定索引的元素
+                scrollTo: function(index) {
+                    // 获取目标的 offsetTop
+                    // css选择器是从 1 开始计数
+                    const targetOffsetTop = this.offsetTopArr[index]
+                    if (index) {
+                        const bottomOffset = this.offsetTopArr[index - 1]
+                    }
+
+                    // 获取当前 offsetTop
+                    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+                        // 定义一次跳 50 个像素，数字越大跳得越快，但是会有掉帧得感觉
+                    const STEP = 50
+                        // 判断是往下滑还是往上滑
+                    if (scrollTop > targetOffsetTop) {
+                        // 往上滑
+                        smoothUp()
+                    } else {
+                        // 往下滑
+                        smoothDown()
+                    }
+                    // 定义往下滑函数
+                    function smoothDown() {
+                        // 如果当前 scrollTop 小于 targetOffsetTop 说明视口还没滑到指定位置
+                        if (scrollTop < targetOffsetTop) {
+                            // 如果和目标相差距离大于等于 STEP 就跳 STEP
+                            // 否则直接跳到目标点，目标是为了防止跳过了。
+                            if (targetOffsetTop - scrollTop >= STEP) {
+                                scrollTop += STEP
+                            } else {
+                                scrollTop = targetOffsetTop
+                            }
+                            document.body.scrollTop = scrollTop
+                            document.documentElement.scrollTop = scrollTop
+                                // 关于 requestAnimationFrame 可以自己查一下，在这种场景下，相比 setInterval 性价比更高
+                            requestAnimationFrame(smoothDown)
+                        }
+                    }
+                    // 定义往上滑函数
+                    function smoothUp() {
+                        if (scrollTop > targetOffsetTop) {
+                            if (scrollTop - targetOffsetTop >= STEP) {
+                                scrollTop -= STEP
+                            } else {
+                                scrollTop = targetOffsetTop
+                            }
+                            document.body.scrollTop = scrollTop
+                            document.documentElement.scrollTop = scrollTop
+                            requestAnimationFrame(smoothUp)
+                        }
+                    }
                 }
             }
 
